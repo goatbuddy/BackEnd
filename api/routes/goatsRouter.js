@@ -7,9 +7,9 @@ const db = require("../models/goatModel");
 router.post("/", async (req, res) => {
   
     try {
-      const contact = req.body;
-      const inserted = await db.addContact(contact);
-      res.status(201).json({ message: "Contact created" })
+      const goat = req.body;
+      const inserted = await db.addgoat(goat);
+      res.status(201).json({ message: "goat created" })
     } catch (error) {
       res.status(500).json({ error: "A problem occured"})
     }
@@ -17,28 +17,28 @@ router.post("/", async (req, res) => {
 //============================Read Router
 router.get("/", async (req, res) => {
   try {
-    const contacts = await db.find();
-    res.status(200).json(contacts);
+    const goats = await db.find();
+    res.status(200).json(goats);
   } catch (error) {
     res
       .status(500)
-      .json({ message: "We ran into an error retrieving the contacts" });
+      .json({ message: "We ran into an error retrieving the goats" });
   }
 });
 
 //-----------------------Read By Id
 router.get("/:id", async (req, res) => {
     try {
-        const contact = await db.findById(req.params.id);
-        if (contact) {
-          res.status(200).json(contact);
+        const goat = await db.findById(req.params.id);
+        if (goat) {
+          res.status(200).json(goat);
         } else {
-          res.status(404).json({ message: "We could not find the contact" });
+          res.status(404).json({ message: "We could not find the goat" });
         }
       } catch (error) {
         res
           .status(500)
-          .json({ message: "We ran into an error retrieving the contact" });
+          .json({ message: "We ran into an error retrieving the goat" });
       }
 });
 
@@ -53,17 +53,17 @@ router.put("/:id", async (req, res) => {
           res.status(200).json(updated);
         } else {
           res.status(404).json({
-            message: "That contact does not exist"
+            message: "That goat does not exist"
           });
         }
       } catch (error) {
         res
           .status(500)
-          .json({ message: "We ran into an error updating the contact" });
+          .json({ message: "We ran into an error updating the goat" });
       }
     } else {
       res.status(400).json({
-        message: "Please provide changes to update the contact"
+        message: "Please provide changes to update the goat"
       });
     }
 });
@@ -76,13 +76,13 @@ router.delete("/:id", async (req, res) => {
           res.status(204).end();
         } else {
           res.status(404).json({
-            message: "That contact does not exist, perhaps they were deleted already"
+            message: "That goat does not exist, perhaps they were deleted already"
           });
         }
       } catch (error) {
         res
           .status(500)
-          .json({ message: "We ran into an error removing the contact" });
+          .json({ message: "We ran into an error removing the goat" });
       }
 });
 

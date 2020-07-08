@@ -1,0 +1,68 @@
+exports.seed = function(knex, Promise) {
+    return knex("goats").insert([
+    {
+        id: 1,
+        owner: 1,
+        name: "Gertrude",
+        gender: "Female",
+        mother: 2,
+        father: 3,
+    },
+    {
+        id: 2,
+        owner: 1,
+        name: "Mother",
+        gender: "Female",
+        mother: 2,
+        father: 3,
+    },
+    {
+        id: 3,
+        owner: 1,
+        name: "Father",
+        gender: "Male",
+        mother: 2,
+        father: 3,
+    },
+    {
+        id: 4,
+        owner: 1,
+        name: "Child 1",
+        gender: "Female",
+        mother: 1,
+        father: 8,
+    },
+    {
+        id: 5,
+        owner: 1,
+        name: "Child 2",
+        gender: "Female",
+        mother: 1,
+        father: 8,
+    },
+    {
+        id: 6,
+        owner: 1,
+        name: "Child 3",
+        gender: "Female",
+        mother: 1,
+        father: 8,
+    },
+    {
+        id: 7,
+        owner: 1,
+        name: "Child 4",
+        gender: "Female",
+        mother: 1,
+        father: 8,
+    },
+    {
+        id: 8,
+        owner: 1,
+        name: "Chad",
+        gender: "Male",
+        mother: 2,
+        father: 3,
+    },
+    ]);
+  };
